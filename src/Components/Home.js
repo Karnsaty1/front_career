@@ -88,7 +88,7 @@ const Home = () => {
         color: '#fff',
         textAlign: 'center',
         padding: '10px 20px',
-        boxShadow: '0 -2px 4px rgba(0, 0, 0, 0.1)',
+        boxShadow: '0 -2px 4px rgba(0, 0, 0, 0.1)', 
       }}>
         <p style={{ margin: 0 }}>
           &copy; {new Date().getFullYear()} CareerConnect. All rights reserved.

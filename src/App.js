@@ -16,6 +16,7 @@ import Prep from './Components/Prep';
 import PrepDetails from './Components/PrepDetails';
 import AddSuccess from './Components/AddSuccess';
 import GetProfile from './Components/GetProfile';
+import './App.css';
 
 function App() {
   const [loading, setLoading] = useState(true);
