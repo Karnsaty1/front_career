@@ -36,8 +36,12 @@ const SignUp = () => {
         body: JSON.stringify(cred),
       });
       console.log(response);
-
+      
       if (!response.ok) {
+        const v=await response.json();
+        if(v.msg==='Email Already Exists !!! Try Logging In'){
+          alert(v.msg);
+        }
         const errorMessage = await response.text();
   console.log('Error:', errorMessage);
   throw new Error(`HTTP error! status: ${response.status}`);

@@ -66,6 +66,10 @@ const LogIn = () => {
         navigate(`/card/${uniqueId}`);
       } else {
         const errorMessage = await response.text();
+        const data=await response.json();
+        if(data.msg==='User not Found !!! Try Signing Up'){
+          alert(data.msg);
+        }
         setError(errorMessage);
       }
     } catch (err) {
