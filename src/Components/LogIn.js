@@ -37,12 +37,18 @@ const LogIn = () => {
       });
 
       if (response.ok) {
-        setShowOtp(true);
-        setError('');
-      } else {
-        const errorMessage = await response.text();
-        setError(errorMessage);
-      }
+  setShowOtp(true);
+  setError('');
+} else {
+  const data = await response.json();
+  if (data.msg === 'Invalid Credentials' || data.msg === 'User Not Found') {
+    alert(data.msg);
+  } else {
+    console.log('Login error:', data);
+    setError(data.msg || 'Something went wrong during login');
+  }
+}
+
     } catch (err) {
       setError('An error occurred. Please try again.');
     } finally {
