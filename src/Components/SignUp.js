@@ -37,15 +37,17 @@ const SignUp = () => {
       });
       console.log(response);
       
-      if (!response.ok) {
-        const v=await response.json();
-        if(v.msg==='Email Already Exists !!! Try Logging In'){
-          alert(v.msg);
-        }
-        const errorMessage = await response.text();
-  console.log('Error:', errorMessage);
-  throw new Error(`HTTP error! status: ${response.status}`);
-      } else {
+     if (!response.ok) {
+  const v = await response.json();
+  if (v.msg === 'Email Already Exists !!! Try Logging In') {
+    alert(v.msg);
+  } else {
+    console.log('Error:', v);
+    setError(v.msg || 'Something went wrong');
+  }
+  return;
+}
+ else {
         setShowOtp(true);
         const data = await response.json();
         console.log(data);
